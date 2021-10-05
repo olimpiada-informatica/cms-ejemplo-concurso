@@ -16,8 +16,8 @@ $ cmsImportContest -L italy_yaml -i .
 ```
 
 Antes de importarlo, **se deben compilar** los validadores de algunas de las tareas.
-En concreto, dentro de cada tarea, todos aquellos ~check/checker.cpp~ o ~check/manager.cpp~,
-de forma que el fichero generado sea ~check/checker~ y ~check/manager~ respectivamente.
+En concreto, dentro de cada tarea, todos aquellos `check/checker.cpp` o `check/manager.cpp`,
+de forma que el fichero generado sea `check/checker` y `check/manager` respectivamente.
 Esos ficheros compilados no aparecen en el repositorio pues el binario depende
 de la plataforma donde se haya desplegado CMS.
 
