@@ -1,0 +1,21 @@
+g++ full_hull_generator.cpp -o full_hull_generator
+g++ random_generator.cpp -o random_generator
+
+
+./random_generator 2 100 1 1000 -1000 1000 1 1000 > 1.inp
+./random_generator 2 100 1 10000 -10000 10000 1 1000 > 2.inp
+./random_generator 2 500 1 1000 -1000 1000 1 1000 > 3.inp
+./random_generator 2 500 1 1000000000000 -100000000000000000 100000000000000000 1 1000 > 4.inp
+./random_generator 500 500 1 1000000000000 -100000000000000000 100000000000000000 1000 1000 > 5.inp
+./random_generator 500 500 1000000000000 1000000000000 100000000000000000 100000000000000000 1000 1000 > 6.inp
+./random_generator 500 500 1 1 -100000000000000000 100000000000000000 1000 1000 > 7.inp
+./random_generator 500 500 1 1000000000000 100000000000000000 100000000000000000 1000 1000 > 8.inp
+./random_generator 2 2 1 100 -1000 1000 1000 1000 > 9.inp
+./full_hull_generator 2 2 10000 50000 1000 1000 > 10.inp
+./full_hull_generator 500 500 1 1 1000 1000 > 11.inp
+./full_hull_generator 500 500 1 150 1000 1000 > 12.inp
+./full_hull_generator 500 500 1 10 1000 1000 > 13.inp
+./full_hull_generator 500 500 100 150 1000 1000 > 14.inp
+./full_hull_generator 500 500 60 120 1000 1000 > 15.inp
+./full_hull_generator 500 500 20 40 1000 1000 > 16.inp
+./full_hull_generator 100 100 20 40 1000 1000 > 17.inp

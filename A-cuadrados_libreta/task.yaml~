@@ -1,0 +1,16 @@
+name: "mi_cuadrados_libreta"
+title: "Cuadrados en la libreta"
+primary_language: es
+time_limit: 1
+memory_limit: 256
+n_input: 55
+score_mode: max_subtask
+feedback_level: restricted
+token_mode: disabled
+public_testcases: all
+infile: ""
+outfile: ""
+#max_user_test_number: 0
+#output_only
+# Communication
+#num_processes: 1

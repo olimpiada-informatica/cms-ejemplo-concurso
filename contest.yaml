@@ -1,0 +1,11 @@
+name: "Concurso_de_ejemplo"
+description: "Concurso de ejemplo de OIE"
+token_mode: "disabled"
+start: 888888888
+stop: 999999999
+tasks:
+  - "A-cuadrados_libreta"
+  - "B-histograma"
+  - "C-minimo"
+  - "D-muelles"
+  - "E-tablero_hermoso"

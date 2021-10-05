@@ -1,0 +1,124 @@
+\documentclass[10.5pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{ amssymb }
+\usepackage{amsmath}
+\usepackage{mdframed}
+\usepackage{minted}
+\surroundwithmdframed[linewidth = 1pt]{minted}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
+\setlength{\headheight}{3cm}
+\thispagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\lhead{
+\begin{minipage}{2.5cm}
+\begin{figure}[H]
+\includegraphics[width=2.5cm]{oie_logo.png}
+\end{figure}
+\end{minipage} 
+\begin{minipage}{8cm}
+\textbf{XXV Olimpiada Inform\'atica Espa\~nola}\\
+Primer concurso clasificatorio\\
+\texttt{tablero\_hermoso}
+\end{minipage}
+}
+
+\begin{document}
+
+
+
+\section*{Tablero hermoso}
+
+Mar\'ia tiene un tablero con $n \times m$ casillas cuadradas distribuidas en $n$ filas y $m$ columnas.
+
+Mar\'ia quiere pintar las casillas de colores blanco y negro de forma que se satisfazcan estas dos propiedades:
+
+\begin{itemize}
+
+\item El n\'umero de casillas de color blanco debe ser igual al n\'umero de casillas de color negro.
+\item El n\'umero de pares de casillas adyacentes del mismo color debe ser igual al n\'umero de pares adyacentes de casillas de color distinto. (Dos casillas se consideran adyacentes si comparten un lado).
+
+\end{itemize}
+
+¿Puedes ayudar a Mar\'ia a pintar su tablero?
+
+
+\subsection*{Entrada y salida}
+
+La primera l\'inea de la entrada continene dos enteros $n$ y $m$. 
+
+La salida debe contener una primera l\'inea con la palabra \texttt{SI} (en may\'usculas y sin tilde) si es posible pintar el tablero de forma que se satisfazcan las condiciones, y con la palabra \texttt{NO} si no es posible. En caso de que la respuesta sea \texttt{SI}, la salida debe incluir $n$ l\'ineas m\'as donde se describa una posible forma de pintar el tablero que satisfazca las propiedades, indicando con \texttt{.} las casillas pintadas de blanco y con \texttt{\#} las pintadas de negro. Si hay varias posibles soluciones se puede responder con cualquiera de ellas.
+
+\subsection*{Ejemplos}
+\subsubsection*{Ejemplo 1}
+
+Entrada:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+2 4
+\end{minted}
+Salida:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+SI
+##..
+.##.
+\end{minted}
+
+El tablero de la salida tiene $4$ casillas negras y $4$ blancas, por lo que se satisface la primera condici\'on.
+
+Tiene $5$ pares de casillas adyacentes del mismo color ($3$ pares de negras y $2$ pares de blancas) y $5$ pares de casillas adyacentes de distinto color, por lo que se satisface la segunda.
+
+N\'otese que se podr\'ia haber dado otra respuesta diferente tambi\'en v\'alida, por ejemplo:
+
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+SI
+..##
+#..#
+\end{minted}
+
+\subsubsection*{Ejemplo 2}
+Entrada:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+3 3
+\end{minted}
+
+Salida:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+NO
+\end{minted}
+
+En este caso, no existe ninguna forma de pintar el tablero que satisfazca las dos condiciones (de hecho, ni siquiera existe una forma de pintar que satisfazca la primera condici\'on).
+
+\subsubsection*{Ejemplo 3}
+Entrada:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+4 6
+\end{minted}
+Salida:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+SI
+###..#
+#..#.#
+..#...
+####..
+\end{minted}
+
+\subsection*{Restricciones}
+$1 \leq n, m \leq 1000$
+\subsection*{Subtareas}
+
+\begin{enumerate}
+    \item (20 puntos) $n, m \leq 6$.
+    \item (20 puntos) $n, m \leq 20$.
+    \item (15 puntos) $n = 2$.
+    \item (15 puntos) $n = m$.
+    \item (30 puntos) Sin restricciones adicionales.
+\end{enumerate}
+
+
+
+\end{document}

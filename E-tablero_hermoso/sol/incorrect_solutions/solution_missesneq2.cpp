@@ -1,0 +1,61 @@
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+
+int main() {
+
+	int n, m;
+	cin >> n >> m;
+	
+	if(n&1 || m&1) {
+		cout << "NO" << endl;
+		return 0;
+	}
+	cout << "SI" << endl;
+
+	bool transp = false;
+	if(n > m) {
+        transp = true;
+        swap(n, m);
+    }
+    
+    vvi grid = vvi(n, vi(m, 0));
+    
+   {
+        
+        for(int j=0; j < m; j+=2) {
+            for(int i=0; i < n; ++i) {
+                grid[i][j] = 1;
+            }
+        }
+        for(int j=n; j < m; j += 2) {
+            grid[1][j-1] = 1;
+            grid[0][j]  = 0;
+        }
+    }
+    
+    if(transp) {
+        for(int i=0; i < m; ++i) {
+            for(int j=0; j < n; ++j) {
+                cout << (grid[j][i] ? "#" : ".");
+            }
+            cout << endl;
+        }
+    }
+    else {
+        for(int i=0; i < n; ++i) {
+            for(int j=0; j < m; ++j) {
+                cout << (grid[i][j] ? "#" : ".");
+            }
+            cout << endl;
+        }
+    }
+	return 0;
+
+}
+

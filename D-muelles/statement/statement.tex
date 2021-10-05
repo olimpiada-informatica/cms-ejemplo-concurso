@@ -1,0 +1,120 @@
+\documentclass[10.5pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{ amssymb }
+\usepackage{amsmath}
+\usepackage{mdframed}
+\usepackage{minted}
+\surroundwithmdframed[linewidth = 1pt]{minted}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
+\setlength{\headheight}{3cm}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\lhead{
+\begin{minipage}{2.5cm}
+\begin{figure}[H]
+\includegraphics[width=2.5cm]{oie_logo.png}
+\end{figure}
+\end{minipage} 
+\begin{minipage}{8cm}
+\textbf{XXV Olimpiada Inform\'atica Espa\~nola}\\
+Pruebas de sistema\\
+\texttt{muelles}
+\end{minipage}
+}
+
+\begin{document}
+
+
+
+\section*{El espect\'aculo de los muelles}
+
+\'Elater es un gran mago. Su funci\'on m\'as famosa es \textit{El espect\'aculo de los muelles}. Consiste en lo siguiente: 
+
+Hay $n$ muelles el\'asticos en una fila colgados del techo a diferentes alturas. El $i$-\'esimo muelle est\'a colgado a una altura $h_i$ y tiene una \textit{constante de elasticidad} $k_i$. Si colgamos una pesa de masa $w$ en el extremo inferior del $i$-\'esimo muelle, la pesa descender\'a hasta una altura dada por la siguiente f\'ormula:
+
+$$H = h_i - \frac{w}{k_i}\text{.}$$
+
+Durante la funci\'on, \'Elater responder\'a preguntas de la audiencia. Cuando le pregunten por un entero positivo $w$, \'Elater ser\'a capaz de adivinar cu\'al de los $n$ muelles descender\'a a la menor altura (es decir, m\'as cerca del suelo) al colgarse una pesa de masa $w$ de \'el (en caso de que hayan varios muelles que desciendan exactamente a la misma altura, \'Elater puede responder cualquiera de ellos). Para conseguir esto, \'Elater cuenta con la ayuda de su inestimable ayudante, Li Chao.
+
+Antes de la funci\'on, Li Chao tiene algo de tiempo para hacer medidas en los muelles. No puede medir directamente los valores de $h_i$ y $k_i$, pero puede escoger dos muelles $a$ y $b$ y una masa entera $w$, colgar una pesa de masa $w$ de cada uno de los dos muelles $a$ y $b$, y ver cu\'al se acerca m\'as al suelo. Antes de la funci\'on, Li Chao tiene tiempo para hacer $20\,000$ medidas de este tipo. Durante la funci\'on, \'Elater ir\'a recibiendo preguntas con distintos valores de $w$. Despu\'es de cada pregunta, \'Elater puede distraer a la audiencia un rato, de forma que a Li Chao le da tiempo a hacer $20$ medidas m\'as antes de chivarle discretamente cu\'al es la respuesta a \'Elater.
+
+¿Puedes ayudar a Li Chao a hacer que el espect\'aculo sea un \'exito?
+
+\small{
+Debes asumir que los muelles est\'an colocados a suficiente altura y los pesos son suficientemente peque\~nos para que los muelles nunca toquen el suelo en ning\'un momento. 
+
+N\'otese que las pesas se quitan de los muelles despu\'es de hacer cada medida.
+}
+
+\subsection*{Entrada y salida}
+
+\textbf{Este es un problema interactivo}. Debes refrescar la salida cada vez que imprimas datos (\texttt{cout << endl} o \texttt{cout << flush} en C++, \texttt{System.out.flush()} en Java, \texttt{stdout.flush()} en Python).
+
+La primera l\'inea de la entrada contiene un entero $n$, el n\'umero de muelles. Debes leer este valor antes de hacer ninguna pregunta.
+
+Para hacer una medida debes escribir una l\'inea con el formato \verb#? a b w#, donde $a, b$ son los \'indices de los muelles que quieres usar $0 \leq a, b \leq n-1$ y $w$ es el peso entero que quieres poner en los dos muelles, y debe satisfacer $1 \leq w \leq 10^5$. Despu\'es de hacer una medida, debes leer de la entrada una palabra, el resultado. Esta palabra ser\'a \verb#FIRST# si el muelle $a$ llega a una altura inferior, \texttt{SECOND} si el muelle $b$ llega a una altura inferior, o \texttt{EQUAL} si los dos llegan a la misma altura.
+
+Durante la primera parte de la interacci\'on (correspondiente a las medidas antes de la funci\'on), puedes hacer como m\'aximo $20\,000$ medidas. Despu\'es de hacer todas las medidas de esta primera parte, debes imprimir una l\'inea con el car\'acter \texttt{!}. Despu\'es de esto, recibir\'as una o m\'as preguntas.
+
+Cada pregunta se dar\'a en una l\'inea de la entrada con el formato \texttt{QUESTION w}, donde $w$ es el entero que se pregunta a \'Elater. Despu\'es de leer cada pregunta, puedes hacer como m\'aximo $20$ medidas (con el mismo formato que antes). Cuando hayas hecho las medidas y hayas determinado la respuesta a la pregunta, debes imprimir una l\'inea con el formato \verb#! i#, donde $i$ es el \'indice del muelle que es la respuesta a la pregunta ($1 \leq i \leq n-1$). Si hay varios muelles que descienden a la misma altura m\'inima, puedes responder cualquiera de ellos.
+
+Cuando no haya m\'as preguntas, leer\'as una l\'inea con la palabra \texttt{FINISH}. Despu\'es de leer esto tu programa debe terminar. 
+
+En caso de que en alg\'un momento escribas una pregunta inv\'alida o te pases del l\'imite de preguntas, leer\'as la palabra \texttt{ERROR}. En ese caso tu programa deber\'a terminar inmediatamente.
+
+\subsection*{Ejemplo}
+
+Entrada:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+3
+SECOND
+QUESTION 2
+SECOND
+FIRST
+QUESTION 6
+SECOND
+SECOND
+FINISH
+\end{minted}
+
+
+
+Salida:
+\begin{minted}[obeytabs=true, breaklines, breakautoindent=true]{text}
+? 0 1 1
+!
+? 0 1 2
+? 1 2 2
+! 1
+? 0 1 6
+? 1 2 6
+! 2
+\end{minted}
+
+\subsection*{Restricciones}
+
+$2 \leq n \leq 500$.
+
+Los pesos de las preguntan satisfacen $1 \leq w \leq 10^5$. Los pesos con los que hagas medidas tambi\'en deben satisfacer $1 \leq w \leq 10^5$.
+
+Se pueden hacer como m\'aximo $20\,000$ medidas durante la primera parte y $20$ medidas despu\'es de cada pregunta.
+
+El n\'umero total de preguntas estar\'a entre $1$ y $1000$. 
+
+\subsection*{Subtareas}
+
+\begin{enumerate}
+    \item (20 puntos) $n \leq 100$.
+    \item (80 puntos) Sin restricciones adicionales.
+    
+\end{enumerate}
+
+
+
+\end{document}

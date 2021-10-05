@@ -1,0 +1,11 @@
+name: "B-histograma"
+title: "Histograma"
+time_limit: 1
+memory_limit: 256
+n_input: 34
+score_mode: max_subtask
+token_mode: disabled
+public_testcases: all
+infile: ""
+outfile: ""
+primary_language: "es"
